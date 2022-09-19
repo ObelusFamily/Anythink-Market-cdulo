@@ -182,10 +182,10 @@ router.put("/:item", auth.required, function (req, res, next) {
         req.item.description = req.body.item.description;
       }
 
-      if (req.body.item.image) {
+      if (typeof req.body.item.image !== "") {
         req.item.image = req.body.item.image;
       } else {
-        req.item.image = "placeholder.png"
+        req.item.image = "placeholder.png";
       }
 
       if (typeof req.body.item.tagList !== "undefined") {
