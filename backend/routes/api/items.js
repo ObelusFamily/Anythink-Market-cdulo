@@ -182,8 +182,10 @@ router.put("/:item", auth.required, function (req, res, next) {
         req.item.description = req.body.item.description;
       }
 
-      if (typeof req.body.item.image !== "undefined") {
-        //req.item.image = req.body.item.image;
+      if (req.body.item.image !== "") {
+        req.item.image = req.body.item.image;
+      } else {
+        req.item.image = "https://picsum.photos/200/300.jpg";
       }
 
       if (typeof req.body.item.tagList !== "undefined") {
